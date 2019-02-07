@@ -5,5 +5,5 @@
     => Copy .sql file to mysql/initdb/
 
 2. EXPORT
-    => RUN COMMAND => . mysql/backup.sh
+    => RUN COMMAND => `. mysql/backup.sh`
     => Get your sql file at mysql/backup/backup-{datetime}.sql
