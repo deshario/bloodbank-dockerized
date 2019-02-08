@@ -1,16 +1,6 @@
 version: '2'
 services:
 
-  php:
-    image: yiisoftware/yii2-php:7.1-apache
-    container_name: bloodbank_APP
-    volumes:
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      - ./app/:/app:delegated
-      - ./logs/apache:/var/log/apache2
-    ports:
-      - '8010:80'
-
   db:
     image: mariadb:10.1
     container_name: bloodbank_DB
@@ -23,6 +13,18 @@ services:
       - MYSQL_DATABASE=bloodbank
       - MYSQL_USER=deshario
       - MYSQL_PASSWORD=123456
+
+  app:
+    build: ./app
+    container_name: bloodbank_APP
+    depends_on:
+      - db
+    volumes:
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      - ./app/:/app:delegated
+      - ./logs/apache:/var/log/apache2
+    ports:
+      - '8010:80'
 
   pma:
     image: phpmyadmin/phpmyadmin
