@@ -14,7 +14,7 @@ services:
       - MYSQL_USER=deshario
       - MYSQL_PASSWORD=123456
 
-  php:
+  app:
     build: ./app
     container_name: bloodbank_APP
     depends_on:
