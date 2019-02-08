@@ -19,10 +19,10 @@ services:
     container_name: bloodbank_APP
     depends_on:
       - db
-    # volumes:
-    #   - ~/.composer-docker/cache:/root/.composer/cache:delegated
-    #   - ./app/:/app:delegated
-    #   - ./logs/apache:/var/log/apache2
+    volumes:
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      - ./app/:/app
+      - ./logs/apache:/var/log/apache2
     ports:
       - '8010:80'
 

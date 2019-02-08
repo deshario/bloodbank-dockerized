@@ -1,17 +1,17 @@
 FROM yiisoftware/yii2-php:7.1-apache
 
-RUN mkdir -p /app
+# RUN apt-get update && apt-get install vim
 
-RUN apt-get update && apt-get install vim nano
+RUN mkdir -p /app
 
 WORKDIR /app
 
-VOLUME /app
+ADD composer.json /app
 
-COPY composer.json /app
-
-COPY composer.lock /app
+ADD composer.lock /app
 
 RUN composer install
+
+VOLUME /app
 
 ADD . /app
