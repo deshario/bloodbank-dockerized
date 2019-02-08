@@ -6,7 +6,9 @@ WORKDIR /app
 
 VOLUME /app
 
-ADD composer.json /app
+COPY composer.json /app
+
+COPY composer.lock /app
 
 RUN composer install
 
