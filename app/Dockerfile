@@ -6,14 +6,12 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
-# ADD composer.json /app
+ADD composer.json /app
 
-# ADD composer.lock /app
+ADD composer.lock /app
 
-# RUN composer install
+RUN composer install
 
 VOLUME /app
 
 ADD . /app
-
-RUN composer install
