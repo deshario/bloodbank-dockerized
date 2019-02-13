@@ -17,6 +17,7 @@ services:
   app:
     build: ./app
     container_name: bloodbank_APP
+    # image: deshario/bloodbank # Clone from Docker Hub
     depends_on:
       - db
     volumes:
